@@ -1,0 +1,13 @@
+.main-content .time{
+	font-size: 0.8em;
+	color: #30a0cc;
+}
+.u-title{
+	margin: 10px 0;
+	padding: 2px 5px;
+	background-color: #15998A;
+background-image: -webkit-linear-gradient(30deg, #159957, #E0E4BA);
+background-image: -o-linear-gradient(30deg, #159957, #E0E4BA);
+background-image: linear-gradient(120deg, #159957, #E0E4BA);
+	color: #fff;
+}
