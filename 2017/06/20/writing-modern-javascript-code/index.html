@@ -308,12 +308,20 @@
 
 
 
-<section id="comments" style="padding: 0 30px">
-	<!-- UY BEGIN -->
-			<div id="uyan_frame"></div>
-			<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2137075"></script>
-			<!-- UY END -->
-</section>
+<div id="comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'pinkyw',
+  repo: 'pinkyw.github.io',
+  oauth: {
+    client_id: 'c4f181ca166153285f09',
+    client_secret: 'cb97b7ab7d9c34bcc3f08c30f0df9f431aabfaf3',
+  },
+})
+gitment.render('comments')
+</script>
 	
 	
 	
