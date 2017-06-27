@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Veloping&#39;s Blog</title>
+  <title>React组件间的通信方式 | Veloping&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Veloping&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="React是模块化的思想，组件间彼此独立，一个再小的页面都能轻松拆分成分门别类的组件，业务页面可以是不同小组件的集合。组件的好处是代码复用、逻辑单一、各司其职、代码结构清晰，组件间可以传递任意类型的参数，但需要注意的点是组件之前怎样定义传递的信息和传递方式，下面简单介绍React组件通信的方式。React组件通信主要有三种方式：父组件向子组件通信、子组件向父组件通信和没有嵌套关系的组件间通信。 父">
+<meta name="keywords" content="react,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React组件间的通信方式">
+<meta property="og:url" content="http://yoursite.com/2017/06/26/components-communication-in-react-0/index.html">
 <meta property="og:site_name" content="Veloping&#39;s Blog">
+<meta property="og:description" content="React是模块化的思想，组件间彼此独立，一个再小的页面都能轻松拆分成分门别类的组件，业务页面可以是不同小组件的集合。组件的好处是代码复用、逻辑单一、各司其职、代码结构清晰，组件间可以传递任意类型的参数，但需要注意的点是组件之前怎样定义传递的信息和传递方式，下面简单介绍React组件通信的方式。React组件通信主要有三种方式：父组件向子组件通信、子组件向父组件通信和没有嵌套关系的组件间通信。 父">
+<meta property="og:updated_time" content="2017-06-27T07:04:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Veloping&#39;s Blog">
+<meta name="twitter:title" content="React组件间的通信方式">
+<meta name="twitter:description" content="React是模块化的思想，组件间彼此独立，一个再小的页面都能轻松拆分成分门别类的组件，业务页面可以是不同小组件的集合。组件的好处是代码复用、逻辑单一、各司其职、代码结构清晰，组件间可以传递任意类型的参数，但需要注意的点是组件之前怎样定义传递的信息和传递方式，下面简单介绍React组件通信的方式。React组件通信主要有三种方式：父组件向子组件通信、子组件向父组件通信和没有嵌套关系的组件间通信。 父">
   
     <link rel="alternative" href="/atom.xml" title="Veloping&#39;s Blog" type="application/atom+xml">
   
@@ -131,16 +136,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-components-communication-in-react-0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-components-communication-in-react-0" class="article article-type-post " itemscope itemprop="blogPost">
 	<div class="article-inner">
 		
 			<header class="article-header">
 				
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/26/components-communication-in-react-0/">React组件间的通信方式</a>
+    <h1 class="article-title" itemprop="name">
+      React组件间的通信方式
     </h1>
   
 
@@ -180,6 +183,35 @@
 			
 
 			
+				<div class="page-reward">
+					<a href="javascript:;" class="page-reward-btn tooltip-top">
+						<div class="tooltip tooltip-east">
+						<span class="tooltip-item">
+							赏
+						</span>
+						<span class="tooltip-content">
+							<span class="tooltip-text">
+								<span class="tooltip-inner">
+									<p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+									<div class="reward-box">
+										
+										<div class="reward-box-item">
+											<img class="reward-img" src="/img/alipay.jpeg">
+										</div>
+										
+										
+										<div class="reward-box-item">
+											<img class="reward-img" src="/img/wechat.jpeg">
+										</div>
+										
+									</div>
+								</span>
+							</span>
+						</span>
+					</div>
+					</a>
+				</div>
+			
 		</div>
 		<div class="article-info article-info-index">
 			
@@ -202,187 +234,100 @@
 			
 
 			
-				<p class="article-more-link">
-					<a class="article-more-a" href="/2017/06/26/components-communication-in-react-0/">展开全文 >></a>
-				</p>
-			
 
+			
+				
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/26/components-communication-in-react-0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 			
 			<div class="clearfix"></div>
 		</div>
 	</div>
 </article>
 
-
-
-
-
-  
-    <article id="post-writing-docker-by-yourself" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-	<div class="article-inner">
-		
-			<header class="article-header">
-				
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/23/writing-docker-by-yourself/">推荐书单之《自己动手写docker》</a>
-    </h1>
-  
-
-				
-				<a href="/2017/06/23/writing-docker-by-yourself/" class="archive-article-date">
-  	<time datetime="2017-06-23T02:01:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-				
-				<p style="font-size: 12px;
-				line-height: 30px;
-				margin-bottom: 0;
-				color: #666;"><span id="busuanzi_container_page_pv">
-					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-				</span></p>
-			</header>
-		
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<h3 id="燊哥的书出版啦"><a href="#燊哥的书出版啦" class="headerlink" title="燊哥的书出版啦"></a>燊哥的书出版啦</h3><p>从16年11月开始决定写书到17年过完年后的俩月，每天晚上11点后下班了给燊哥打电话或者视频都说在写书，写到一两点。在我抱怨工作太忙没时间写博客做技术沉淀的时候，燊哥默默地给我做了个榜样，搞得我很仰慕他。<br>皇天不负有心人，《自己动手写docker》终于出版了！</p>
-<p><a href="https://item.jd.com/12109237.html" target="_blank" rel="external"><img src="/2017/06/23/writing-docker-by-yourself/docker-book.jpg" alt="&quot;自己动手写docker&quot;"></a></p>
-<p>为什么推荐这本书呢？不仅因为是我家深深作为作者之一写的书，还因为了解他写书的历程。每天下班后3位作者开会讨论写作的细节，然后像打鸡血一样写到深夜，很认真很负责地写完了各自的章节。市面上买过很多技术书籍，有些就是写出来骗钱的，但是这本docker书是三位一线研发人员通过总结自己的实践经验和踩过的坑深入思考写出来的，相信是精品。</p>
-<h3 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h3><p>自己动手写Docker》在详细分析Docker所依赖的技术栈的基础上，一步一步地通过代码实例，让读者可以自己循序渐进地用Go语言构建出一个容器的引擎。不同于其他Docker原理介绍或代码剖析的书籍，《自己动手写Docker》旨在提供给读者一条动手路线，一步一步地实现Docker的隔离性，构建Docker的镜像、容器的生命周期及Docker的网络等。《自己动手写Docker》涉及的代码都托管在GitHub上，读者可以对照书中的步骤从代码层面学习构建流程，从而精通整个容器技术栈。《自己动手写Docker》也对目前业界容器技术的方向和实现做了简单介绍，以加深读者对容器生态的认识和理解。<br>《自己动手写Docker》适合对容器技术已经使用过或有一些了解，希望更深层次掌握容器技术原理和至佳实践的读者。</p>
-<h3 id="书中源码"><a href="#书中源码" class="headerlink" title="书中源码"></a>书中源码</h3><p><a href="https://github.com/xianlubird/mydocker" target="_blank" rel="external">https://github.com/xianlubird/mydocker</a></p>
-<h3 id="购买链接"><a href="#购买链接" class="headerlink" title="购买链接"></a>购买链接</h3><p>京东自营：<a href="https://item.jd.com/12109237.html" target="_blank" rel="external">https://item.jd.com/12109237.html</a></p>
-
-			
-
-			
-		</div>
-		<div class="article-info article-info-index">
-			
-			
-			
-
-			
-				<p class="article-more-link">
-					<a class="article-more-a" href="/2017/06/23/writing-docker-by-yourself/">展开全文 >></a>
-				</p>
-			
-
-			
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</article>
-
-
-
-
-
-  
-    <article id="post-writing-modern-javascript-code" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-	<div class="article-inner">
-		
-			<header class="article-header">
-				
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/20/writing-modern-javascript-code/">[译]书写现代化JavaScript代码</a>
-    </h1>
-  
-
-				
-				<a href="/2017/06/20/writing-modern-javascript-code/" class="archive-article-date">
-  	<time datetime="2017-06-20T08:33:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
-</a>
-				
-				<p style="font-size: 12px;
-				line-height: 30px;
-				margin-bottom: 0;
-				color: #666;"><span id="busuanzi_container_page_pv">
-					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-				</span></p>
-			</header>
-		
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<h3 id="用可以格式化代码的工具-linter"><a href="#用可以格式化代码的工具-linter" class="headerlink" title="用可以格式化代码的工具(linter)"></a>用可以格式化代码的工具(linter)</h3><p>我的首要建议是用一个优化代码工具linter，它能够遵循一些规则保证你的代码可以兼容到各个文件，特别是多个开发人员在同一个项目里工作的时候。规则包括：缩进、括号中的空格、用===替换==……<br>但更重要的是你的linter能在需要的时候自动为你修复代码。<a href="eslint.org/">ESLint</a>在这一点做得非常好（用-fix选项），并且它与所有主流IDEs完美集成，可以在保存时自动修复文件。<br>你也可以用更专注在代码格式化而不是修复代码的<a href="https://github.com/prettier/prettier" target="_blank" rel="external">Prettier</a>,但基本上是殊途同归。</p>
-<h3 id="下一点将帮助你选择在linter中使用的规则："><a href="#下一点将帮助你选择在linter中使用的规则：" class="headerlink" title="下一点将帮助你选择在linter中使用的规则："></a>下一点将帮助你选择在linter中使用的规则：</h3><p>如果你想知道你的代码需要什么规则，这儿有个提示： <a href="https://standardjs.com/" target="_blank" rel="external">StandardJS</a>。这是个非常严格的linter，不会让你定制任何规则，但是每个规则都越来越被社区所承认。这是部分示例：</p>
-<ul>
-<li>用2个空格作为缩进（我习惯用4个，但事实上用2个更好）</li>
-<li>不用分号（一开始很难适应，但几天后却不能适应有分号了）</li>
-<li>关键字（比如if）后和花括号{}内加空格，小括号()内不加</li>
-<li>还有一些</li>
-</ul>
-<p>StandardJS是一个可以校验和修复代码的独立Node模块，但如果想在大型已存在项目中使用又想屏蔽某些规则（因为有些规则需要调整），你也可以用<a href="https://github.com/feross/eslint-config-standard" target="_blank" rel="external">ESLint predefined config</a>。比如我就屏蔽了 <a href="eslint.org/docs/rules/no-mixed-operators">no-mixed-operators</a> 和  <a href="https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md" target="_blank" rel="external">import/no-webpack-loader-syntax</a>的规则。</p>
-<h3 id="使用ES2015新特性"><a href="#使用ES2015新特性" class="headerlink" title="使用ES2015新特性"></a>使用ES2015新特性</h3><p>如果您用JavaScript开发，您根本没听说过ES2015+（或者说ES6、ES7……）的特性，那么请看这是我使用后不能离开的那些：</p>
-<ul>
-<li>箭头函数：像X=&gt;x*2这种方式写函数在函数式编程中是非常有用的</li>
-<li>类：停止使用原型函数，相对而言类酷多了（但别滥用，JavaScript比其他面向对象语言好多了）</li>
-<li>数组和对象的方法：</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">const</span> a = doSomethingElse()</div><div class="line">	<span class="keyword">const</span> b = doSomethingWithA(a)</div><div class="line">	<span class="keyword">const</span> otherResults = &#123; <span class="attr">c</span>: <span class="string">'cat'</span>, <span class="attr">d</span>: <span class="string">'dog'</span> &#125;</div><div class="line">	<span class="keyword">return</span> &#123; a, b, ...otherResults &#125; <span class="comment">// equivalent to &#123; a: a, b: b &#125;</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> &#123; a, c, ...rest &#125; = doSomething() <span class="comment">// Also works with arrays!</span></div><div class="line"><span class="comment">// `rest` looks like &#123; b: ..., d: 'dog' &#125;</span></div></pre></td></tr></table></figure>
-<ul>
-<li>用promise比用async/await更简单：</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Please try to write the same code with classic promises ;)</span></div><div class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">const</span> a = <span class="keyword">await</span> getValueForA()</div><div class="line">	<span class="keyword">const</span> b = <span class="keyword">await</span> getValueForBFromA(a)</div><div class="line">	<span class="keyword">const</span> [c, d] = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([</div><div class="line">		<span class="comment">// parallel execution</span></div><div class="line">		getValueForC(), getValueForDFromB(b)</div><div class="line">	])</div><div class="line">	<span class="keyword">const</span> total = <span class="keyword">await</span> calculateTotal(a, b, c, d)</div><div class="line">	<span class="keyword">return</span> total / <span class="number">1000</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>想知道怎样使用这些梦幻般的功能吗？ 我的一篇文章可以给你建议！（顺便说下，用最新版本的Node.js你可以不再需要Babel兼容来使用最新的特性）</p>
-<h3 id="使用函数式编程"><a href="#使用函数式编程" class="headerlink" title="使用函数式编程"></a>使用函数式编程</h3><p>函数式编程最近取得了不错的口碑，炒得很火，不仅在JavaScript中。为什么呢？它使代码更具可预测性、安全性和确定性，并且在习惯使用它时更容易维护，这有些简单的建议：</p>
-<p>首先停止使用for循环，在大多数场景（所有吗？）中您无需使用。例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> arr = [&#123; <span class="attr">name</span>: <span class="string">'first'</span>, <span class="attr">value</span>: <span class="number">13</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">'second'</span>, <span class="attr">value</span>: <span class="number">7</span> &#125;]</div><div class="line"></div><div class="line"><span class="comment">// Instead of:</span></div><div class="line"><span class="keyword">const</span> res = &#123;&#125;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">	<span class="keyword">const</span> calculatedValue = arr[i].value * <span class="number">10</span></div><div class="line">	<span class="keyword">if</span> (calculatedValue &gt; <span class="number">100</span>) &#123;</div><div class="line">		res[arr[i].name] = calculatedValue</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Prefer:</span></div><div class="line"><span class="keyword">const</span> res = arr</div><div class="line">	.map(<span class="function"><span class="params">elem</span> =&gt;</span> (&#123; <span class="attr">name</span>: elem.name, <span class="attr">calculatedValue</span>: elem.value * <span class="number">10</span> &#125;))</div><div class="line">	.filter(<span class="function"><span class="params">elem</span> =&gt;</span> elem.calculatedValue &gt; <span class="number">100</span>)</div><div class="line">	.reduce(<span class="function">(<span class="params">acc, elem</span>) =&gt;</span> (&#123;</div><div class="line">		[elem.name]: calculatedValue,</div><div class="line">		...acc</div><div class="line">&#125;), &#123;&#125;)</div></pre></td></tr></table></figure></p>
-<p>好吧，我承认这是个非常极端的例子，如果你不习惯函数式编程，可能看起来比较复杂。也许可以简化它：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> enrichElementWithCalculatedValue =</div><div class="line"><span class="function"><span class="params">elem</span> =&gt;</span> (&#123; <span class="attr">name</span>: elem.name, <span class="attr">calculatedValue</span>: elem.value * <span class="number">10</span> &#125;)</div><div class="line"><span class="keyword">const</span> filterElementsByValue = <span class="function"><span class="params">value</span> =&gt;</span></div><div class="line">elem =&gt; elem.calculatedValue &gt; value</div><div class="line"><span class="keyword">const</span> aggregateElementInObject = <span class="function">(<span class="params">acc, elem</span>) =&gt;</span> (&#123;</div><div class="line">	[elem.name]: calculatedValue,</div><div class="line">	...acc</div><div class="line">&#125;)</div><div class="line"><span class="keyword">const</span> res = arr</div><div class="line">	.map(enrichElementWithCalculatedValue)</div><div class="line">	.filter(filterElementsByValue(<span class="number">100</span>))</div><div class="line">	.reduce(aggregateElementInObject, &#123;&#125;)</div></pre></td></tr></table></figure></p>
-<p>这里我们定义了3个以功能命名的方法。第二个建议：创建本地方法（即使在现有的功能中）来记录代码，不用评论。<br>请注意，三个本地函数不修改它们执行的上下文。没有外部变量被修改，没有其他服务被调用…在功能编程中，它们被称为纯函数。 他们有一些很大的优势：</p>
-<ul>
-<li>它们很容易测试，因为给定的参数后只有一个可能的结果，即使多次调用函数;</li>
-<li>无论实际应用情况如何，都能保证相同的结果;</li>
-<li>应用程序状态在函数调用之前和之后保持不变。</li>
-</ul>
-<p>所以我的第三个建议是：用大量纯净的函数。</p>
-<h3 id="其他建议"><a href="#其他建议" class="headerlink" title="其他建议"></a>其他建议</h3><ul>
-<li>习惯使用异步代码，大量使用promises，参考<a href="reactivex.io/rxjs/">RxJS</a> 的观察者模式（<a href="https://reactivex.io/learnrx/" target="_blank" rel="external">有个关于函数式编程上升到通用接口编程的高级教程</a>）；</li>
-<li>写测试用例！应该看起来很明显，但我知道有很多项目都未经测试，尽管测试JavaScript（前端或后端）并不像看起来那么困难；</li>
-<li>用语言最新的特性：比如停止使用arr.indexOf(elem)!==-1，倾向于使用aee.includes(elem)；</li>
-<li>阅读大量的技术文章：<a href="https://www.reddit.com/r/javascript/" target="_blank" rel="external">JavaScript subreddit</a>是个非常好的资源，用来了解当前生态系统里最酷的实践；</li>
-</ul>
-<p>总而言之，我可以给你的最大的建议是：总是重构你的代码！改进你一年前写过的模块？总有机会用const替换var，使用箭头函数或异步/等待（async/await）来简化代码……在你喜欢的代码上做改进更好。</p>
-<h3 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h3><p><a href="https://dev.to/scastiel/writing-modern-javascript-code" target="_blank" rel="external">https://dev.to/scastiel/writing-modern-javascript-code</a></p>
-
-			
-
-			
-		</div>
-		<div class="article-info article-info-index">
-			
-			
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-			
-
-			
-				<p class="article-more-link">
-					<a class="article-more-a" href="/2017/06/20/writing-modern-javascript-code/">展开全文 >></a>
-				</p>
-			
-
-			
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</article>
-
-
-
-
-
+	
+<nav id="article-nav">
   
   
+    <a href="/2017/06/23/writing-docker-by-yourself/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">推荐书单之《自己动手写docker》</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+<div id="comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'pinkyw',
+  repo: 'pinkyw.github.io',
+  oauth: {
+    client_id: 'c4f181ca166153285f09',
+    client_secret: 'cb97b7ab7d9c34bcc3f08c30f0df9f431aabfaf3',
+  },
+})
+gitment.render('comments')
+</script>
+	
+	
+	
+
+	
+
+	
 
 
           </div>
@@ -411,8 +356,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
