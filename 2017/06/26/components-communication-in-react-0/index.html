@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://pinkyw.github.io">
   <title>React组件间的通信方式 | Veloping&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="React是模块化的思想，组件间彼此独立，一个再小的页面都能轻松拆分成分门别类的组件，业务页面可以是不同小组件的集合。组件的好处是代码复用、逻辑单一、各司其职、代码结构清晰，组件间可以传递任意类型的参数，但需要注意的点是组件之前怎样定义传递的信息和传递方式，下面简单介绍React组件通信的方式。React组件通信主要有三种方式：父组件向子组件通信、子组件向父组件通信和没有嵌套关系的组件间通信。 父">
+  <meta name="description" content="React是模块化的思想，组件间彼此独立，一个再小的页面都能轻松拆分成分门别类的组件，业务页面可以是不同小组件的集合。组件的好处是代码复用、逻辑单一、各司其职、代码结构清晰，组件间可以传递任意类型的参数，但需要注意的点是组件之前怎样定义传递的信息和传递方式，下面简单介绍React组件通信的方式。React组件通信主要有三种方式：父组件向子组件通信、子组件向父组件通信和没有嵌套关系的组件间通信。">
 <meta name="keywords" content="前端,react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React组件间的通信方式">
 <meta property="og:url" content="https://pinkyw.github.io/2017/06/26/components-communication-in-react-0/index.html">
 <meta property="og:site_name" content="Veloping&#39;s Blog">
-<meta property="og:description" content="React是模块化的思想，组件间彼此独立，一个再小的页面都能轻松拆分成分门别类的组件，业务页面可以是不同小组件的集合。组件的好处是代码复用、逻辑单一、各司其职、代码结构清晰，组件间可以传递任意类型的参数，但需要注意的点是组件之前怎样定义传递的信息和传递方式，下面简单介绍React组件通信的方式。React组件通信主要有三种方式：父组件向子组件通信、子组件向父组件通信和没有嵌套关系的组件间通信。 父">
-<meta property="og:updated_time" content="2017-06-27T07:04:24.000Z">
+<meta property="og:description" content="React是模块化的思想，组件间彼此独立，一个再小的页面都能轻松拆分成分门别类的组件，业务页面可以是不同小组件的集合。组件的好处是代码复用、逻辑单一、各司其职、代码结构清晰，组件间可以传递任意类型的参数，但需要注意的点是组件之前怎样定义传递的信息和传递方式，下面简单介绍React组件通信的方式。React组件通信主要有三种方式：父组件向子组件通信、子组件向父组件通信和没有嵌套关系的组件间通信。">
+<meta property="og:updated_time" content="2017-06-28T02:09:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React组件间的通信方式">
-<meta name="twitter:description" content="React是模块化的思想，组件间彼此独立，一个再小的页面都能轻松拆分成分门别类的组件，业务页面可以是不同小组件的集合。组件的好处是代码复用、逻辑单一、各司其职、代码结构清晰，组件间可以传递任意类型的参数，但需要注意的点是组件之前怎样定义传递的信息和传递方式，下面简单介绍React组件通信的方式。React组件通信主要有三种方式：父组件向子组件通信、子组件向父组件通信和没有嵌套关系的组件间通信。 父">
+<meta name="twitter:description" content="React是模块化的思想，组件间彼此独立，一个再小的页面都能轻松拆分成分门别类的组件，业务页面可以是不同小组件的集合。组件的好处是代码复用、逻辑单一、各司其职、代码结构清晰，组件间可以传递任意类型的参数，但需要注意的点是组件之前怎样定义传递的信息和传递方式，下面简单介绍React组件通信的方式。React组件通信主要有三种方式：父组件向子组件通信、子组件向父组件通信和没有嵌套关系的组件间通信。">
   
     <link rel="alternative" href="/atom.xml" title="Veloping&#39;s Blog" type="application/atom+xml">
   
@@ -165,7 +165,7 @@
 		
 		<div class="article-entry" itemprop="articleBody">
 			
-				<p>React是模块化的思想，组件间彼此独立，一个再小的页面都能轻松拆分成分门别类的组件，业务页面可以是不同小组件的集合。组件的好处是代码复用、逻辑单一、各司其职、代码结构清晰，组件间可以传递任意类型的参数，但需要注意的点是组件之前怎样定义传递的信息和传递方式，下面简单介绍React组件通信的方式。<br>React组件通信主要有三种方式：父组件向子组件通信、子组件向父组件通信和没有嵌套关系的组件间通信。</p>
+				<p>React是模块化的思想，组件间彼此独立，一个再小的页面都能轻松拆分成分门别类的组件，业务页面可以是不同小组件的集合。组件的好处是代码复用、逻辑单一、各司其职、代码结构清晰，组件间可以传递任意类型的参数，但需要注意的点是组件之前怎样定义传递的信息和传递方式，下面简单介绍React组件通信的方式。<br>React组件通信主要有三种方式：父组件向子组件通信、子组件向父组件通信和没有嵌套关系的组件间通信。<br><a id="more"></a></p>
 <h3 id="父组件向子组件通信"><a href="#父组件向子组件通信" class="headerlink" title="父组件向子组件通信"></a>父组件向子组件通信</h3><p>React是单向数据流，即父组件向子组件传递信息，这种情况是最常见的，也就是通过props来传递。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListItem</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">return</span> &lt;li&gt;&#123;this.props.item&#125;&lt;/li&gt;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">List</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">return</span> </div><div class="line">        &lt;ul&gt;</div><div class="line">            &#123;</div><div class="line">                this.props.data.map((data, index)=&gt;(</div><div class="line">                    &lt;ListItem item=&#123;data&#125; key=&#123;index&#125;&gt;&lt;/ListItem&gt;</div><div class="line">                ))</div><div class="line">            &#125;</div><div class="line">        &lt;/ul&gt;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="子组件向父组件通信"><a href="#子组件向父组件通信" class="headerlink" title="子组件向父组件通信"></a>子组件向父组件通信</h3><p>由于父组件可以通过props向子组件通信，props可以是任意类型，所以支持传递function，也就是通常说的“回调”，子组件可以通过回调向父组件传递信息。</p>
