@@ -1,1 +1,1 @@
-https://pinkyw.github.io/2017/06/26/components-communication-in-react-0/
+https://pinkyw.github.io/2017/07/11/project-guidelines/
