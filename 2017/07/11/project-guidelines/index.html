@@ -17,7 +17,7 @@
 <meta property="og:description" content="原文https://github.com/wearehive/project-guidelines  项目最佳实践指南 &amp;middot;  在开发新项目时，就好像为你翻滚着一个绿色区域，却维持着一个缠绕着别人的黑暗噩梦一样。这是我们发现并编写出的指南列表，他们被运用于在hive。上的大部分JavaScript项目中，并且用得很好。如果你想分享最好的实践，或者认为其中一则指南应该被清除，请随意地分享">
 <meta property="og:image" content="https://pinkyw.github.io/2017/07/11/project-guidelines/logo.png">
 <meta property="og:image" content="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square">
-<meta property="og:updated_time" content="2017-07-11T15:09:12.000Z">
+<meta property="og:updated_time" content="2017-07-11T15:22:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 项目最佳实践指南">
 <meta name="twitter:description" content="原文https://github.com/wearehive/project-guidelines  项目最佳实践指南 &amp;middot;  在开发新项目时，就好像为你翻滚着一个绿色区域，却维持着一个缠绕着别人的黑暗噩梦一样。这是我们发现并编写出的指南列表，他们被运用于在hive。上的大部分JavaScript项目中，并且用得很好。如果你想分享最好的实践，或者认为其中一则指南应该被清除，请随意地分享">
@@ -364,21 +364,21 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="4-Dependencies"><a href="#4-Dependencies" class="headerlink" title="4. Dependencies "></a>4. Dependencies <a name="dependencies"></a></h2><p>Before using a package, check its GitHub. Look for the number of open issues, daily downloads and number of contributors as well as the date the package was last updated.</p>
+<h2 id="4-Dependencies"><a href="#4-Dependencies" class="headerlink" title="4. Dependencies "></a>4. Dependencies <a name="dependencies"></a></h2><p>在用一个包之前，检查下它的GitHub。看下open issues的数量、日下载量、代码贡献人数和最近一次包更新是啥时候。</p>
 <ul>
-<li>If less known dependency is needed, discuss it with the team before using it.</li>
-<li>Keep track of your currently available packages: e.g., <code>npm ls --depth=0</code>. <a href="https://docs.npmjs.com/cli/ls" target="_blank" rel="external">read more…</a></li>
-<li>See if any of your packages have become unused or irrelevant: <code>depcheck</code>. <a href="https://www.npmjs.com/package/depcheck" target="_blank" rel="external">read more…</a></li>
-<li>Check download statistics to see if the dependency is heavily used by the community: <code>npm-stat</code>. <a href="https://npm-stat.com/" target="_blank" rel="external">read more…</a></li>
-<li>Check to see if the dependency has a good, mature version release frequency with a large number of maintainers: e.g., <code>npm view async</code>. <a href="https://docs.npmjs.com/cli/view" target="_blank" rel="external">read more…</a></li>
-<li>Always make sure your app works with the latest versions of dependencies without breaking: <code>npm outdated</code>. <a href="https://docs.npmjs.com/cli/outdated" target="_blank" rel="external">read more…</a></li>
-<li>Check to see if the package has known security vulnerabilities with, e.g., <a href="https://snyk.io/test?utm_source=risingstack_blog" target="_blank" rel="external">Snyk</a>.</li>
+<li>如果需要依赖不太了解的包，请在使用之前与团队进行讨论。</li>
+<li>跟踪当前可用的包: 如 <code>npm ls --depth=0</code>。<a href="https://docs.npmjs.com/cli/ls" target="_blank" rel="external">阅读更多…</a></li>
+<li>检查下当前的包是否有些已不被使用或者不相关了：<code>depcheck</code>. <a href="https://www.npmjs.com/package/depcheck" target="_blank" rel="external">阅读更多…</a></li>
+<li>检查下载统计信息，查看依赖的包是否被社区大量使用: <code>npm-stat</code>. <a href="https://npm-stat.com/" target="_blank" rel="external">阅读更多…</a></li>
+<li>检查依赖关系是否具有良好的成熟版本发布频率与大量的维护者: 如 <code>npm view async</code>。<a href="https://docs.npmjs.com/cli/view" target="_blank" rel="external">阅读更多…</a></li>
+<li>始终确保应用程序适用于最新版本的依赖包，并不会中断：<code>npm outdated</code>. <a href="https://docs.npmjs.com/cli/outdated" target="_blank" rel="external">阅读更多…</a></li>
+<li>检查包是否已知安全漏洞：如 <a href="https://snyk.io/test?utm_source=risingstack_blog" target="_blank" rel="external">Snyk</a>.</li>
 </ul>
-<h3 id="4-1-Consistent-dependencies"><a href="#4-1-Consistent-dependencies" class="headerlink" title="4.1 Consistent dependencies:"></a>4.1 Consistent dependencies:</h3><ul>
-<li>Use <code>package-lock.json</code> on <code>npm@5</code> or higher</li>
-<li>For older versions of <code>npm</code>, use <code>—save --save-exact</code> when installing a new dependency and create <code>npm-shrinkwrap.json</code> before publishing.</li>
-<li>Alternatively you can use <code>Yarn</code> and make sure to mention it in <code>README.md</code>. Your lock file and <code>package.json</code> should have the same versions after each dependency update.</li>
-<li>Read more here: <a href="https://docs.npmjs.com/files/package-locks" target="_blank" rel="external">package-locks | npm Documentation</a></li>
+<h3 id="4-1-一致的dependencies"><a href="#4-1-一致的dependencies" class="headerlink" title="4.1 一致的dependencies:"></a>4.1 一致的dependencies:</h3><ul>
+<li>在<code>npm@5</code>或更高版本上使用<code>package-lock.json</code></li>
+<li>对于老版本的<code>npm</code>, 安装新依赖包之前运行<code>—save --save-exact</code>并在发布前新建<code>npm-shrinkwrap.json</code>。</li>
+<li>也可以用<code>Yarn</code>，但要保证在<code>README.md</code>中有说明。锁文件盒<code>package.json</code>在每次更新依赖后要保持版本号一致。</li>
+<li>了解更多: <a href="https://docs.npmjs.com/files/package-locks" target="_blank" rel="external">package-locks | npm Documentation</a></li>
 </ul>
 <h2 id="5-Testing"><a href="#5-Testing" class="headerlink" title="5. Testing "></a>5. Testing <a name="testing"></a></h2><ul>
 <li>Have a test mode environment if needed.</li>
