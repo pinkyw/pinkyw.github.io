@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://pinkyw.github.io">
-  <title>Veloping&#39;s Blog</title>
+  <title>[译]为什么我们选择使用 React 而不是 Angular 构建新 UI | Veloping&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Veloping&#39;s Blog">
-<meta property="og:url" content="https://pinkyw.github.io/index.html">
+  <meta name="description" content="原文https://www.programmableweb.com/news/why-we-built-our-new-developer-ui-react-instead-angular/analysis/2017/07/06  我们在2013年推出了v1版云元素集成平台，这个产品在过去几年里一直为客户和公司发展做出了贡献。但是2017年，网络技术迅速演变，从而使用户期望进一步发展。现在是我们重">
+<meta name="keywords" content="翻译">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[译]为什么我们选择使用 React 而不是 Angular 构建新 UI">
+<meta property="og:url" content="https://pinkyw.github.io/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/index.html">
 <meta property="og:site_name" content="Veloping&#39;s Blog">
+<meta property="og:description" content="原文https://www.programmableweb.com/news/why-we-built-our-new-developer-ui-react-instead-angular/analysis/2017/07/06  我们在2013年推出了v1版云元素集成平台，这个产品在过去几年里一直为客户和公司发展做出了贡献。但是2017年，网络技术迅速演变，从而使用户期望进一步发展。现在是我们重">
+<meta property="og:image" content="https://pinkyw.github.io/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/react.png">
+<meta property="og:image" content="https://pinkyw.github.io/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/diffrence.png">
+<meta property="og:updated_time" content="2017-08-17T09:33:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Veloping&#39;s Blog">
+<meta name="twitter:title" content="[译]为什么我们选择使用 React 而不是 Angular 构建新 UI">
+<meta name="twitter:description" content="原文https://www.programmableweb.com/news/why-we-built-our-new-developer-ui-react-instead-angular/analysis/2017/07/06  我们在2013年推出了v1版云元素集成平台，这个产品在过去几年里一直为客户和公司发展做出了贡献。但是2017年，网络技术迅速演变，从而使用户期望进一步发展。现在是我们重">
+<meta name="twitter:image" content="https://pinkyw.github.io/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/react.png">
   
     <link rel="alternative" href="/atom.xml" title="Veloping&#39;s Blog" type="application/atom+xml">
   
@@ -131,16 +139,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular" class="article article-type-post " itemscope itemprop="blogPost">
 	<div class="article-inner">
 		
 			<header class="article-header">
 				
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/">[译]为什么我们选择使用 React 而不是 Angular 构建新 UI</a>
+    <h1 class="article-title" itemprop="name">
+      [译]为什么我们选择使用 React 而不是 Angular 构建新 UI
     </h1>
   
 
@@ -150,6 +156,13 @@
 </a>
 				
 				
+					<p style="font-size: 12px;
+						line-height: 30px;
+						margin-bottom: 0;
+						color: #666;"><span id="busuanzi_container_page_pv">
+							阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+					</span></p>
+				
 			</header>
 		
 		
@@ -157,245 +170,76 @@
 			
 				<h2 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h2><p><a href="https://www.programmableweb.com/news/why-we-built-our-new-developer-ui-react-instead-angular/analysis/2017/07/06" target="_blank" rel="external">https://www.programmableweb.com/news/why-we-built-our-new-developer-ui-react-instead-angular/analysis/2017/07/06</a></p>
 <hr>
-<p>我们在2013年推出了v1版云元素集成平台，这个产品在过去几年里一直为客户和公司发展做出了贡献。但是2017年，网络技术迅速演变，从而使用户期望进一步发展。现在是我们重新思考整个开发者旅程的时候了，这也为我们重新思考技术栈提供了一个机会。<br>在产品发布周期和发布期限的条件下，技术的选择至关重要。 在这来看看我们的经验，帮助您揭开一些关于<a href="https://www.programmableweb.com/framework/react-javascript-framework" target="_blank" rel="external">React</a>的实用信息。<br></p>
-			
-
-			
-		</div>
-		<div class="article-info article-info-index">
-			
-			
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-			
-
-			
-				<p class="article-more-link">
-					<a class="article-more-a" href="/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/#more">展开全文 >></a>
-				</p>
-			
-
-			
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</article>
+<p>我们在2013年推出了v1版云元素集成平台，这个产品在过去几年里一直为客户和公司发展做出了贡献。但是2017年，网络技术迅速演变，从而使用户期望进一步发展。现在是我们重新思考整个开发者旅程的时候了，这也为我们重新思考技术栈提供了一个机会。<br>在产品发布周期和发布期限的条件下，技术的选择至关重要。 在这来看看我们的经验，帮助您揭开一些关于<a href="https://www.programmableweb.com/framework/react-javascript-framework" target="_blank" rel="external">React</a>的实用信息。<br><a id="more"></a></p>
+<h2 id="我们来自哪"><a href="#我们来自哪" class="headerlink" title="我们来自哪"></a>我们来自哪</h2><p>在React之前，我们使用<a href="https://www.programmableweb.com/framework/angularjs" target="_blank" rel="external">AngularJS</a>，这可能是当时被选中的最流行的前端框架。 但是如上所述，时间已经转移，AngularJS v1.x的统治已被其年轻的老弟<a href="https://www.programmableweb.com/news/angular-2-what%E2%80%99s-working-what-needs-work-and-where-it%E2%80%99s-heading/analysis/2017/01/17" target="_blank" rel="external">Angular 2</a>所篡夺。<br>离开AngularJS v1.x的一个主要目标是预测这个框架的生命结束。 虽然它仍然得到积极的支持，但这是一个转型成新事物的好机会。</p>
+<h2 id="使用Javascript框架的优点"><a href="#使用Javascript框架的优点" class="headerlink" title="使用Javascript框架的优点"></a>使用Javascript框架的优点</h2><p>进来，团队知道继续使用JavaScript框架将提供几个显着的优点：</p>
+<ul>
+<li>效率：以前需要用几个月几百行代码才能完成的项目现在可以用结构良好的预构建模式和功能来实现得更快。</li>
+<li>安全：Javascript框架有内置的安全测试，并且成员和用户都作为测试人员在大型社区做技术支持。</li>
+<li>成本：大多数框架都免费开源。由于它们帮助工程师更快的构建解决方案，所以开发web app的成本会越来越低。</li>
+</ul>
+<h2 id="为什么选择React"><a href="#为什么选择React" class="headerlink" title="为什么选择React"></a>为什么选择React</h2><p>当考虑不同的选项来创建我们的新用户界面时，React是一个明显的选择，因为它有很好的声明性，高效性和灵活性。 与Angular不同，ReactJS是一个基于JavaScript的带有JSX编译器的开源库。它主要集中在用户界面上，允许我们创建可重用的UI组件。</p>
+<p>React的一切都是与组件相关的。用React构建一个项目就是把各种组件组合到一起，让应用程序的UI带入生命周期-和lego很像！这些封装了的组件内部管理自己的状态（state），因为组建逻辑是用JavaScript写的而不是模版，所以你可以很容易通过应用程序传递复杂的数据，而不需要担心Dom节点的状态。</p>
+<p>你可以在应用程序内为每个state设计一个简单视图，React会在数据改变的时候处理组件的渲染。</p>
+<p>虽然有些人会争取做完全无状态的组件，但React的真正功能和性能来自于应用程序的状态概念。</p>
+<p>在使用React时，你应该牢记它不是一个JS框架，而是渲染视图的一个库。</p>
+<p>当有不同的框架可以选择的时候（比如 Vue Ember Angular2等），React有几个核心优势：</p>
+<ul>
+<li><p>JSX是JavaScript的语法，可以使用html引用和html标签语法来渲染子组件。它促进了构建机器可读的代码，并提供在一个编译时验证文件中组合组件的能力。</p>
+</li>
+<li><p>由于虚拟DOM的使用，相对Angular 1.x来说提供了极大的性能提升。另外，React组件在应用程序内可以新建也可以重用。</p>
+</li>
+<li><p>ReactJs和AngularJs的核心不同是React以JS为中心，而Angular以HTML为中心。JavaScript远远比HTML要强大，这使得React更加简单、更集中和一致。</p>
+</li>
+</ul>
+<h2 id="React如何改善开发者体验"><a href="#React如何改善开发者体验" class="headerlink" title="React如何改善开发者体验"></a>React如何改善开发者体验</h2><p>React通过很多论坛提供技术支持，比如Stackoverflow、Reactiflux Chat、Freenode IRC、Facebook and Twitter，这使我们更容易决定怎么选择。</p>
+<p>React可能不会做任何事情，但它提供了一个补充工具的列表，包括调试工具，组件工作台，JSX集成，基本入门工具包，全栈入门工具包，模型管理<a href="https://github.com/facebook/react/wiki/Complementary-Tools" target="_blank" rel="external">等等</a>，与其平台携手合作。</p>
+<p>React在Facebook和Instagram的用户界面的背后，体现出其动态、高流量的效率。它可能是增长最快的JS“框架”：截至今天，Github有超过1,000个贡献者。</p>
+<p>尽管React有一个学习曲线，但它使应用程序开发变得简单易懂。此外，它可以非常适合复杂，高负载和下一代软件解决方案。</p>
+<center><br><img src="/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/react.png" alt=""><br>来源: <a href="https://insights.stackoverflow.com/survey/2017" target="_blank" rel="external">https://insights.stackoverflow.com/survey/2017</a></center>
 
 
+<p>React提供有用的开发工具来创建零配置的应用。随着平台不断发展，React持续在发布新功能和升级。最近的发布是webpack 2，这可以直接编写和导入ES6模块，而不是将它们编译到CommonJS，这有助于捕获更多的错误。</p>
+<h2 id="是什么让React与众不同"><a href="#是什么让React与众不同" class="headerlink" title="是什么让React与众不同"></a>是什么让React与众不同</h2><p>React本身不是一个框架，在前面提及过，它应该被理解为一个视图渲染引擎或者组建模型。</p>
+<p>React提供可重复使用的可配置组件，让您快速入门。 网上充满了易用的React组件，几乎涵盖了所有事情：表单（react-form）、状态管理（Readux）、SPA路由（react-router）、实时消息（reactfire）、管理异步任务（react-axios），图表（react-sparklines）—— 这份列表一直在更新。</p>
+<p>这儿有一份表格，体现了React和我们曾经的Angular的核心区别：</p>
+<center><br><img src="/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/diffrence.png" alt=""><br>来源: <a href="https://da-14.com/blog/reactjs-vs-angular-comparison-which-better" target="_blank" rel="external">https://da-14.com/blog/reactjs-vs-angular-comparison-which-better</a></center>
 
 
-
-  
-    <article id="post-project-guidelines" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-	<div class="article-inner">
-		
-			<header class="article-header">
-				
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/11/project-guidelines/">[译]JavaScript 项目最佳实践指南</a>
-    </h1>
-  
-
-				
-				<a href="/2017/07/11/project-guidelines/" class="archive-article-date">
-  	<time datetime="2017-07-11T12:41:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
-</a>
-				
-				
-			</header>
-		
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<h2 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h2><p><a href="https://github.com/wearehive/project-guidelines" target="_blank" rel="external">https://github.com/wearehive/project-guidelines</a></p>
-<p><a href="http://wearehive.co.uk/" target="_blank" rel="external"><img src="/2017/07/11/project-guidelines/logo.png"></a></p>
-<h1 id="JavaScript-项目最佳实践指南-middot"><a href="#JavaScript-项目最佳实践指南-middot" class="headerlink" title="JavaScript 项目最佳实践指南 &middot; "></a>JavaScript 项目最佳实践指南 &middot; <a href="http://makeapullrequest.com" target="_blank" rel="external"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome"></a></h1><blockquote>
-<p>在开发新项目时，就像在一个大操场上翻滚得很爽，但是其他人来维护的时候就是个恶梦。以下是我们发现并编写出的指南列表，在<a href="http://wearehive.co.uk" target="_blank" rel="external">hive</a>。<br>上的大部分JavaScript项目都能很好工作。如果你想分享最佳实践，或者认为其中一则指南应该被清除，<a href="http://makeapullrequest.com" target="_blank" rel="external">请随时跟我们分享</a>。<br></p></blockquote>
-			
-
-			
-		</div>
-		<div class="article-info article-info-index">
-			
-			
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>当考虑用React构建项目时，必须提前弄清楚应用里的数据以及您希望它们有什么样的生命周期。例如，React使用单向数据绑定，其中数据流仅以一种方式进行。因此，您要始终意识到数据发生变化的地方，使数据的状态在大型应用程序中更容易进行调试</p>
+<p>您还需要深入了解您要解决的业务问题，以及您需要什么数据来解决这些问题。我们是所有团队的数据驱动型组。因此在工程中，我们使用监控和数据收集知道怎样花费时间投资以及如何最好地利用我们的资源。总的来说，在使用React构建新界面时，我们克服了斗争，但从来没有忽视我们的主要目标——减少时间提升价值、数据的灵活性，同时留下进步和创新的空间。</p>
 
 			
 
 			
-				<p class="article-more-link">
-					<a class="article-more-a" href="/2017/07/11/project-guidelines/#more">展开全文 >></a>
-				</p>
-			
-
-			
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</article>
-
-
-
-
-
-  
-    <article id="post-components-communication-in-react-0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-	<div class="article-inner">
-		
-			<header class="article-header">
-				
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/26/components-communication-in-react-0/">React组件间的通信方式</a>
-    </h1>
-  
-
-				
-				<a href="/2017/06/26/components-communication-in-react-0/" class="archive-article-date">
-  	<time datetime="2017-06-26T02:07:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-				
-				
-			</header>
-		
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<p>React是模块化的思想，组件间彼此独立，一个再小的页面都能轻松拆分成分门别类的组件，业务页面可以是不同小组件的集合。组件的好处是代码复用、逻辑单一、各司其职、代码结构清晰，组件间可以传递任意类型的参数，但需要注意的点是组件之前怎样定义传递的信息和传递方式，下面简单介绍React组件通信的方式。<br>React组件通信主要有三种方式：父组件向子组件通信、子组件向父组件通信和没有嵌套关系的组件间通信。<br></p>
-			
-
-			
-		</div>
-		<div class="article-info article-info-index">
-			
-			
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-			
-
-			
-				<p class="article-more-link">
-					<a class="article-more-a" href="/2017/06/26/components-communication-in-react-0/#more">展开全文 >></a>
-				</p>
-			
-
-			
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</article>
-
-
-
-
-
-  
-    <article id="post-writing-docker-by-yourself" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-	<div class="article-inner">
-		
-			<header class="article-header">
-				
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/23/writing-docker-by-yourself/">推荐书单之《自己动手写docker》</a>
-    </h1>
-  
-
-				
-				<a href="/2017/06/23/writing-docker-by-yourself/" class="archive-article-date">
-  	<time datetime="2017-06-23T02:01:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-				
-				
-			</header>
-		
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<h3 id="燊哥的书出版啦"><a href="#燊哥的书出版啦" class="headerlink" title="燊哥的书出版啦"></a>燊哥的书出版啦</h3><p>从16年11月开始决定写书到17年过完年后的俩月，每天晚上11点后下班了给燊哥打电话或者视频都说在写书，写到一两点。在我抱怨工作太忙没时间写博客做技术沉淀的时候，燊哥默默地给我做了个榜样，搞得我很仰慕他。<br>皇天不负有心人，《自己动手写docker》终于出版了！<br></p>
-			
-
-			
-		</div>
-		<div class="article-info article-info-index">
-			
-			
-			
-
-			
-				<p class="article-more-link">
-					<a class="article-more-a" href="/2017/06/23/writing-docker-by-yourself/#more">展开全文 >></a>
-				</p>
-			
-
-			
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</article>
-
-
-
-
-
-  
-    <article id="post-writing-modern-javascript-code" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-	<div class="article-inner">
-		
-			<header class="article-header">
-				
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/20/writing-modern-javascript-code/">[译]书写现代化JavaScript代码</a>
-    </h1>
-  
-
-				
-				<a href="/2017/06/20/writing-modern-javascript-code/" class="archive-article-date">
-  	<time datetime="2017-06-20T08:33:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
-</a>
-				
-				
-			</header>
-		
-		
-		<div class="article-entry" itemprop="articleBody">
-			
-				<h3 id="用可以格式化代码的工具-linter"><a href="#用可以格式化代码的工具-linter" class="headerlink" title="用可以格式化代码的工具(linter)"></a>用可以格式化代码的工具(linter)</h3><p>我的首要建议是用一个优化代码工具linter，它能够遵循一些规则保证你的代码可以兼容到各个文件，特别是多个开发人员在同一个项目里工作的时候。规则包括：缩进、括号中的空格、用===替换==……<br>但更重要的是你的linter能在需要的时候自动为你修复代码。<a href="eslint.org/">ESLint</a>在这一点做得非常好（用-fix选项），并且它与所有主流IDEs完美集成，可以在保存时自动修复文件。<br>你也可以用更专注在代码格式化而不是修复代码的<a href="https://github.com/prettier/prettier" target="_blank" rel="external">Prettier</a>,但基本上是殊途同归。<br></p>
-			
-
+				<div class="page-reward">
+					<a href="javascript:;" class="page-reward-btn tooltip-top">
+						<div class="tooltip tooltip-east">
+						<span class="tooltip-item">
+							赏
+						</span>
+						<span class="tooltip-content">
+							<span class="tooltip-text">
+								<span class="tooltip-inner">
+									<p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+									<div class="reward-box">
+										
+										<div class="reward-box-item">
+											<img class="reward-img" src="/img/alipay.jpeg">
+										</div>
+										
+										
+										<div class="reward-box-item">
+											<img class="reward-img" src="/img/wechat.jpeg">
+										</div>
+										
+									</div>
+								</span>
+							</span>
+						</span>
+					</div>
+					</a>
+				</div>
 			
 		</div>
 		<div class="article-info article-info-index">
@@ -415,23 +259,100 @@
 			
 
 			
-				<p class="article-more-link">
-					<a class="article-more-a" href="/2017/06/20/writing-modern-javascript-code/#more">展开全文 >></a>
-				</p>
-			
 
+			
+				
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://pinkyw.github.io/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 			
 			<div class="clearfix"></div>
 		</div>
 	</div>
 </article>
 
-
-
-
-
+	
+<nav id="article-nav">
   
   
+    <a href="/2017/07/11/project-guidelines/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[译]JavaScript 项目最佳实践指南</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+<div id="comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'pinkyw',
+  repo: 'pinkyw.github.io',
+  oauth: {
+    client_id: 'c4f181ca166153285f09',
+    client_secret: 'cb97b7ab7d9c34bcc3f08c30f0df9f431aabfaf3',
+  },
+})
+gitment.render('comments')
+</script>
+	
+	
+	
+
+	
+
+	
 
 
           </div>
@@ -460,8 +381,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

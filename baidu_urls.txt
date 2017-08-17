@@ -1,1 +1,1 @@
-https://pinkyw.github.io/2017/07/11/project-guidelines/
+https://pinkyw.github.io/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/
