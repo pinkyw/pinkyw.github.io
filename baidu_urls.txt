@@ -1,1 +1,1 @@
-https://pinkyw.github.io/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/
+https://pinkyw.github.io/2017/10/17/javascript-scope-closures/

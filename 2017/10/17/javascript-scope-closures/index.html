@@ -6,14 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://pinkyw.github.io">
-  <title>Tag: 翻译 | Veloping&#39;s Blog</title>
+  <title>JavaScript的作用域和闭包 | Veloping&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Veloping&#39;s Blog">
-<meta property="og:url" content="https://pinkyw.github.io/tags/翻译/index.html">
+  <meta name="description" content="原文：https://css-tricks.com/javascript-scope-closures/ 作用域和闭包在JavaScript中很重要，但在我刚开始上手的时候被弄得有点懵。这里帮大家讲解一下作用域和闭包，帮助理解。 首先来说说作用域。 作用域JavaScript中的作用域定义了能够被访问的变量。有两种作用域——全局作用域和局部作用域。">
+<meta name="keywords" content="翻译">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript的作用域和闭包">
+<meta property="og:url" content="https://pinkyw.github.io/2017/10/17/javascript-scope-closures/index.html">
 <meta property="og:site_name" content="Veloping&#39;s Blog">
+<meta property="og:description" content="原文：https://css-tricks.com/javascript-scope-closures/ 作用域和闭包在JavaScript中很重要，但在我刚开始上手的时候被弄得有点懵。这里帮大家讲解一下作用域和闭包，帮助理解。 首先来说说作用域。 作用域JavaScript中的作用域定义了能够被访问的变量。有两种作用域——全局作用域和局部作用域。">
+<meta property="og:image" content="https://pinkyw.github.io/2017/10/17/javascript-scope-closures/one-way-glass.png">
+<meta property="og:image" content="https://pinkyw.github.io/2017/10/17/javascript-scope-closures/glass-layers_iohiy.png">
+<meta property="og:image" content="https://pinkyw.github.io/2017/10/17/javascript-scope-closures/debugger1_zmrmjz.png">
+<meta property="og:image" content="https://pinkyw.github.io/2017/10/17/javascript-scope-closures/debugger2_fyj91h.png">
+<meta property="og:image" content="https://pinkyw.github.io/2017/10/17/javascript-scope-closures/breakpoint_twihuy.png">
+<meta property="og:updated_time" content="2017-10-17T02:56:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Veloping&#39;s Blog">
+<meta name="twitter:title" content="JavaScript的作用域和闭包">
+<meta name="twitter:description" content="原文：https://css-tricks.com/javascript-scope-closures/ 作用域和闭包在JavaScript中很重要，但在我刚开始上手的时候被弄得有点懵。这里帮大家讲解一下作用域和闭包，帮助理解。 首先来说说作用域。 作用域JavaScript中的作用域定义了能够被访问的变量。有两种作用域——全局作用域和局部作用域。">
+<meta name="twitter:image" content="https://pinkyw.github.io/2017/10/17/javascript-scope-closures/one-way-glass.png">
   
     <link rel="alternative" href="/atom.xml" title="Veloping&#39;s Blog" type="application/atom+xml">
   
@@ -131,36 +142,148 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-javascript-scope-closures" class="article article-type-post " itemscope itemprop="blogPost">
+	<div class="article-inner">
+		
+			<header class="article-header">
+				
   
+    <h1 class="article-title" itemprop="name">
+      JavaScript的作用域和闭包
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/17/javascript-scope-closures/" class="archive-article-date">
+
+				
+				<a href="/2017/10/17/javascript-scope-closures/" class="archive-article-date">
   	<time datetime="2017-10-17T02:15:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/17/javascript-scope-closures/">JavaScript的作用域和闭包</a>
-    </h1>
-  
+				
+				
+					<p style="font-size: 12px;
+						line-height: 30px;
+						margin-bottom: 0;
+						color: #666;"><span id="busuanzi_container_page_pv">
+							阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+					</span></p>
+				
+			</header>
+		
+		
+		<div class="article-entry" itemprop="articleBody">
+			
+				<p>原文：<a href="https://css-tricks.com/javascript-scope-closures/" target="_blank" rel="external">https://css-tricks.com/javascript-scope-closures/</a></p>
+<p>作用域和闭包在JavaScript中很重要，但在我刚开始上手的时候被弄得有点懵。这里帮大家讲解一下作用域和闭包，帮助理解。</p>
+<p>首先来说说作用域。</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>JavaScript中的作用域定义了能够被访问的变量。有两种作用域——全局作用域和局部作用域。<br><a id="more"></a></p>
+<h3 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h3><p>如果一个变量是不在任何函数或者花括号（{}）内部的话，这通常被定义为变量在全局作用域中。</p>
+<p>ps：在浏览器端的JavaScript中是这样的。在Node.js中不是这样声明，但是我们在这篇文章中暂不讨论。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> globalVariable = <span class="string">'some value'</span></div></pre></td></tr></table></figure>
+<p>这样就定义了一个全局变量，在代码的任何地方都可以访问到它，甚至在函数中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> hello = <span class="string">'Hello CSS-Tricks Reader!'</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(hello)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(hello) <span class="comment">// 'Hello CSS-Tricks Reader!'</span></div><div class="line">sayHello() <span class="comment">// 'Hello CSS-Tricks Reader!'</span></div></pre></td></tr></table></figure>
+<p>虽然你可以自由地在全局作用域中声明变量，但是建议不要这样做。因为这样可能会命名冲突，多个变量重名。如果用const或let声明了某个变量，在命名冲突的地方会报错。这种做法是不可取的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Don't do this!</span></div><div class="line"><span class="keyword">let</span> thing = <span class="string">'something'</span></div><div class="line"><span class="keyword">let</span> thing = <span class="string">'something else'</span> <span class="comment">// Error, thing has already been declared</span></div></pre></td></tr></table></figure>
+<p>如果是用var声明的变量，第二次声明同名的变量会把之前声明赋的值覆盖掉，这会使代码调试很复杂，所以也是不可取的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Don't do this!</span></div><div class="line"><span class="keyword">var</span> thing = <span class="string">'something'</span></div><div class="line"><span class="keyword">var</span> thing = <span class="string">'something else'</span> <span class="comment">// perhaps somewhere totally different in your code</span></div><div class="line"><span class="built_in">console</span>.log(thing) <span class="comment">// 'something else'</span></div></pre></td></tr></table></figure>
+<p>所以，你应该一直定义局部变量，而不是全部变量。</p>
+<h2 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h2><p>只能在代码的特定部分被访问的变量常常被形容为在局部作用域内，这些变量被称为<b>局部变量</b>。</p>
+<p>在JavaScript中有2种作用域：函数作用域和块级作用域。</p>
+<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>如果在函数中声明了一个变量，那么只能在函数内部访问到它，在函数外部访问不到。</p>
+<p>在下面这个例子中，hello这个变量在sayHello函数作用域内：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> hello = <span class="string">'Hello CSS-Tricks Reader!'</span></div><div class="line">  <span class="built_in">console</span>.log(hello)</div><div class="line">&#125;</div><div class="line"></div><div class="line">sayHello() <span class="comment">// 'Hello CSS-Tricks Reader!'</span></div><div class="line"><span class="built_in">console</span>.log(hello) <span class="comment">// Error, hello is not defined</span></div></pre></td></tr></table></figure>
+<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>如果在花括号内（{}）声明了一个变量，那么只能在花括号内部访问到它。</p>
+<p>在下面这个例子中，hello在花括号的块级作用域内：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="keyword">const</span> hello = <span class="string">'Hello CSS-Tricks Reader!'</span></div><div class="line">  <span class="built_in">console</span>.log(hello) <span class="comment">// 'Hello CSS-Tricks Reader!'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(hello) <span class="comment">// Error, hello is not defined</span></div></pre></td></tr></table></figure>
+<p>块范围是函数范围的一个子集，因为函数需要使用花括号声明（除非您使用带有隐式返回的箭头函数）。</p>
+<h3 id="函数提升和作用域"><a href="#函数提升和作用域" class="headerlink" title="函数提升和作用域"></a>函数提升和作用域</h3><p>被声明过的函数在当前作用域内会声明提前。所以下面2种写法是一样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 和下面效果一致</span></div><div class="line">sayHello()</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello CSS-Tricks Reader!'</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 和上面效果一致</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello CSS-Tricks Reader!'</span>)</div><div class="line">&#125;</div><div class="line">sayHello()</div></pre></td></tr></table></figure>
+<p>在用function表达式声明函数的时候，函数会被声明提前到当前作用域的最上面。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sayHello() <span class="comment">// Error, sayHello is not defined</span></div><div class="line"><span class="keyword">const</span> sayHello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(aFunction)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>由于有2个变量，函数提升可能会令人困惑，不应该使用。应该始终在使用之前声明您的函数。</p>
+<h3 id="函数内部无法访问其他作用域"><a href="#函数内部无法访问其他作用域" class="headerlink" title="函数内部无法访问其他作用域"></a>函数内部无法访问其他作用域</h3><p>当两个函数单独定义的时候，互相不能访问到对方的作用域，哪怕他们互相调用。</p>
+<p>在下面这个例子中，second访问不到first函数内部的变量firstFunctionVariable。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">first</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> firstFunctionVariable = <span class="string">`I'm part of first`</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">second</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  first()</div><div class="line">  <span class="built_in">console</span>.log(firstFunctionVariable) <span class="comment">// Error, firstFunctionVariable is not defined</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="嵌套范围"><a href="#嵌套范围" class="headerlink" title="嵌套范围"></a>嵌套范围</h3><p>如果函数被定义在另一个函数内部，里面的函数可以访问外部函数的变量。这种行为被称为lexical scoping。</p>
+<p>然而，外部的函数访问不到里面函数内的变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outerFunction</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> outer = <span class="string">`I'm the outer function!`</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">innerFunction</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> inner = <span class="string">`I'm the inner function!`</span></div><div class="line">    <span class="built_in">console</span>.log(outer) <span class="comment">// I'm the outer function!</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log(inner) <span class="comment">// Error, inner is not defined</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>为了理解作用域是如何工作，可以想像单向玻璃，你可以看到外面，但外面的人看不到你。<br><img src="/2017/10/17/javascript-scope-closures/one-way-glass.png" alt=""><br>如果在作用域内部包含作用域，可以想象多层的单向玻璃。<br><img src="/2017/10/17/javascript-scope-closures/glass-layers_iohiy.png" alt=""><br>到目前为止，在了解了所有的作用域之后，你已经准备好了解什么是闭包。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>当在函数内部定义了另一个函数的时候，就创建了一个闭包。里面的函数是闭包。通常返回此闭包，以便稍后使用外部函数的变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outerFunction</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> outer = <span class="string">`I see the outer variable!`</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">innerFunction</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(outer)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> innerFunction</div><div class="line">&#125;</div><div class="line"></div><div class="line">outerFunction()() <span class="comment">// I see the outer variable!</span></div></pre></td></tr></table></figure>
+<p>由于返回了内部函数，您还可以通过在声明函数时编写return语句来缩短代码。<br>Since the inner function is returned, you can also shorten the code a little by writing a return statement while declaring the function.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outerFunction</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> outer = <span class="string">`I see the outer variable!`</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">innerFunction</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(outer)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">outerFunction()() <span class="comment">// I see the outer variable!</span></div></pre></td></tr></table></figure>
+<p>由于闭包可以访问外部函数的变量，它们通常被用来做2件事：</p>
+<p>1、控制副作用<br>2、创建私有变量</p>
+<h3 id="用闭包控制副作用"><a href="#用闭包控制副作用" class="headerlink" title="用闭包控制副作用"></a>用闭包控制副作用</h3><p>当在函数中返回值的时候会有副作用。很多情况都有副作用，比如Ajax请求，timeout或者console.log语句：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'A console.log is a side effect!'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当用闭包来控制副作用时，您通常会关注那些可能会扰乱代码流比如Ajax或timeout的东西。</p>
+<p>让我们看下这个例子，使这个概念更清晰。</p>
+<p>假设您想为朋友的生日做个蛋糕，做这个蛋糕需要花费一些时间，所以您写了一个函数，记录一秒之后做蛋糕。</p>
+<p>我在这儿用ES6箭头函数来简化这个例子，更易于理解。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeCake</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  setTimeout(<span class="function"><span class="params">_</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Made a cake`</span>), <span class="number">1000</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>您可以看到，这个蛋糕制作函数有个副作用：timeout。</p>
+<p>我们再来假设您想要朋友选择蛋糕的口味，为了做出来，您可以在蛋糕制作函数中增加蛋糕的口味。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeCake</span>(<span class="params">flavor</span>) </span>&#123;</div><div class="line">  setTimeout(<span class="function"><span class="params">_</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Made a <span class="subst">$&#123;flavor&#125;</span> cake!`</span>, <span class="number">1000</span>))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在运行函数时，请注意一秒钟后蛋糕立即制作出来了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">makeCake(<span class="string">'banana'</span>)</div><div class="line"><span class="comment">// Made a banana cake!</span></div></pre></td></tr></table></figure>
+<p>这儿有个问题，就是您不想在知道口味之后立即把蛋糕做出来。您想要在时间合适的时候再做。</p>
+<p>为了解决这个问题，您可以写个准备蛋糕函数来存储口味。然后在准备蛋糕函数（prepareCake）中返回蛋糕制作（makeCake）的闭包。</p>
+<p>从这一点看，您可以随时调用返回函数，并在一秒之后制作蛋糕。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">prepareCake</span> (<span class="params">flavor</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">_</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Made a <span class="subst">$&#123;flavor&#125;</span> cake!`</span>, <span class="number">1000</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> makeCakeLater = prepareCake(<span class="string">'banana'</span>)</div><div class="line"></div><div class="line"><span class="comment">// And later in your code...</span></div><div class="line">makeCakeLater()</div><div class="line"><span class="comment">// Made a banana cake!</span></div></pre></td></tr></table></figure>
+<p>这就是闭包如何用来减弱副作用——您创建了一个函数激活了内部的闭包。</p>
+<h3 id="闭包内的私有变量"><a href="#闭包内的私有变量" class="headerlink" title="闭包内的私有变量"></a>闭包内的私有变量</h3><p>您现在知道了函数内部创建的变量在外部不能被访问到。由于它们不能被访问，所以也被称为私有变量。</p>
+<p>然而，有时候需要访问到私有变量，您可以借助闭包来做。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">secret</span> (<span class="params">secretCode</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    saySecretCode () &#123;</div><div class="line">      <span class="built_in">console</span>.log(secretCode)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> theSecret = secret(<span class="string">'CSS Tricks is amazing'</span>)</div><div class="line">theSecret.saySecretCode()</div><div class="line"><span class="comment">// 'CSS Tricks is amazing'</span></div></pre></td></tr></table></figure>
+<p>上面这个例子中的saySecretCode是secret暴露secretCode给外部的唯一函数（闭包），因此它特被称为特权函数（privileged function）。</p>
+<h2 id="用DevTools调试作用域"><a href="#用DevTools调试作用域" class="headerlink" title="用DevTools调试作用域"></a>用DevTools调试作用域</h2><p>Chrome和Firefox的DevTools让您很容易调试当前作用域内可访问的变量。这儿有2种使用这个功能的方式。</p>
+<p>第一种是在代码里加调试的关键词，这可以让浏览器中的JavaScript在执行过程中暂停，以便您进行调试。</p>
+<p>这儿仍然是准备蛋糕（prepareCake）的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">prepareCake</span> (<span class="params">flavor</span>) </span>&#123;</div><div class="line">  <span class="comment">// Adding debugger</span></div><div class="line">  <span class="keyword">debugger</span></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">_</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Made a <span class="subst">$&#123;flavor&#125;</span> cake!`</span>, <span class="number">1000</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> makeCakeLater = prepareCake(<span class="string">'banana'</span>)</div></pre></td></tr></table></figure>
+<p>如果您打开DevTools并导航到Chrome中的“源”选项卡（或Firefox中的“调试器”选项卡），您将看到可用的变量。</p>
+<p><img src="/2017/10/17/javascript-scope-closures/debugger1_zmrmjz.png" alt=""></p>
+<p>您也可以在闭包中调试关键字，请注意变量的变化：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">prepareCake</span> (<span class="params">flavor</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// Adding debugger</span></div><div class="line">    <span class="keyword">debugger</span></div><div class="line">    setTimeout(<span class="function"><span class="params">_</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Made a <span class="subst">$&#123;flavor&#125;</span> cake!`</span>, <span class="number">1000</span>))</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/2017/10/17/javascript-scope-closures/debugger2_fyj91h.png" alt=""></p>
+<p>第二种方式是直接在sources这个tab中（或者调试器）点击行数打断点。</p>
+<p><img src="/2017/10/17/javascript-scope-closures/breakpoint_twihuy.png" alt=""></p>
+<h2 id="Wrapping-up"><a href="#Wrapping-up" class="headerlink" title="Wrapping up"></a>Wrapping up</h2><p>作用域和闭包没有想象中那么难以理解。当您知道怎么通过单面镜看的时候它是非常简单的。</p>
+<p>当您在函数中声明变量的时候，在函数内部可以访问。这些变量被称为在函数的作用域内。</p>
+<p>如果您在函数内部定义任意函数的时候，内部函数被称为闭包。它可以访问外部函数创建的变量。</p>
 
-        <div class="article-info info-on-right">
-          
+			
+
+			
+				<div class="page-reward">
+					<a href="javascript:;" class="page-reward-btn tooltip-top">
+						<div class="tooltip tooltip-east">
+						<span class="tooltip-item">
+							赏
+						</span>
+						<span class="tooltip-content">
+							<span class="tooltip-text">
+								<span class="tooltip-inner">
+									<p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+									<div class="reward-box">
+										
+										<div class="reward-box-item">
+											<img class="reward-img" src="/img/alipay.jpeg">
+										</div>
+										
+										
+										<div class="reward-box-item">
+											<img class="reward-img" src="/img/wechat.jpeg">
+										</div>
+										
+									</div>
+								</span>
+							</span>
+						</span>
+					</div>
+					</a>
+				</div>
+			
+		</div>
+		<div class="article-info article-info-index">
+			
+			
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -172,133 +295,103 @@
 		</ul>
 	</div>
 
-          
+			
 
+			
+
+			
+				
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/" class="archive-article-date">
-  	<time datetime="2017-08-17T02:27:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/">[译]为什么我们选择使用 React 而不是 Angular 构建新 UI</a>
-    </h1>
-  
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		
-		</ul>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://pinkyw.github.io/2017/10/17/javascript-scope-closures/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+			
+			<div class="clearfix"></div>
+		</div>
 	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/11/project-guidelines/" class="archive-article-date">
-  	<time datetime="2017-07-11T12:41:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/11/project-guidelines/">[译]JavaScript 项目最佳实践指南</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/20/writing-modern-javascript-code/" class="archive-article-date">
-  	<time datetime="2017-06-20T08:33:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/20/writing-modern-javascript-code/">[译]书写现代化JavaScript代码</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+	
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/08/17/Why-We-Built-Our-New-Developer-UI-on-React-Instead-of-Angular/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[译]为什么我们选择使用 React 而不是 Angular 构建新 UI</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
 
-    
+
+
+
+
+<div id="comments"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'pinkyw',
+  repo: 'pinkyw.github.io',
+  oauth: {
+    client_id: 'c4f181ca166153285f09',
+    client_secret: 'cb97b7ab7d9c34bcc3f08c30f0df9f431aabfaf3',
+  },
+})
+gitment.render('comments')
+</script>
+	
+	
+	
+
+	
+
+	
 
 
           </div>
@@ -328,9 +421,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
